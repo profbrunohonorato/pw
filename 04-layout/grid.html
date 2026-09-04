@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CSS Tradicional vs CSS Grid</title>
+
+    <style>
+
+        /* =========================================================
+           ESTILOS VISUAIS
+           Não fazem parte da comparação de layout.
+           ========================================================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .instrucoes {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #f2f2f2;
+            border-left: 5px solid #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            border: 2px dashed #999;
+        }
+
+        .card {
+            background-color: #1976d2;
+            color: white;
+            padding: 40px 10px;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+
+        /* =========================================================
+           OPÇÃO 1 - CSS TRADICIONAL
+
+           Execute primeiro desta forma.
+
+           Depois:
+
+           1. COMENTE este bloco.
+           2. DESCOMENTE o bloco CSS GRID.
+           3. Execute novamente.
+
+           ========================================================= */
+
+        .card {
+            float: left;
+
+            width: calc(33.333% - 14px);
+
+            margin-right: 20px;
+
+            margin-bottom: 20px;
+        }
+
+        .card:nth-child(3n) {
+            margin-right: 0;
+        }
+
+        .container::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+
+        /* =========================================================
+           OPÇÃO 2 - CSS GRID
+
+           COMENTE O BLOCO ACIMA
+           E DESCOMENTE ESTE BLOCO.
+           ========================================================= */
+
+        /*
+        .container {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 20px;
+        }
+        */
+
+    </style>
+</head>
+
+<body>
+
+    <h1>CSS Tradicional vs CSS Grid</h1>
+
+    <div class="instrucoes">
+
+        <h2>Experimento</h2>
+
+        <p>
+            O objetivo é organizar seis elementos em uma grade
+            com três colunas.
+        </p>
+
+        <ol>
+            <li>Execute o código como está.</li>
+
+            <li>
+                Observe a implementação na seção
+                <strong>OPÇÃO 1 - CSS TRADICIONAL</strong>.
+            </li>
+
+            <li>
+                Comente todo o código da
+                <strong>OPÇÃO 1</strong>.
+            </li>
+
+            <li>
+                Descomente o código da
+                <strong>OPÇÃO 2 - CSS GRID</strong>.
+            </li>
+
+            <li>
+                Execute novamente.
+            </li>
+
+            <li>
+                Compare a quantidade de regras necessárias
+                para produzir a mesma grade.
+            </li>
+        </ol>
+
+    </div>
+
+
+    <!-- =========================================================
+         O HTML É EXATAMENTE O MESMO
+         NAS DUAS IMPLEMENTAÇÕES
+         ========================================================= -->
+
+    <div class="container">
+
+        <div class="card">
+            Card 1
+        </div>
+
+        <div class="card">
+            Card 2
+        </div>
+
+        <div class="card">
+            Card 3
+        </div>
+
+        <div class="card">
+            Card 4
+        </div>
+
+        <div class="card">
+            Card 5
+        </div>
+
+        <div class="card">
+            Card 6
+        </div>
+
+    </div>
+
+
+    <div class="instrucoes">
+
+        <h2>CSS Tradicional</h2>
+
+        <p>
+            Para construir a grade manualmente precisamos controlar:
+        </p>
+
+        <ul>
+            <li>float;</li>
+            <li>largura de cada elemento;</li>
+            <li>cálculo da largura;</li>
+            <li>margem horizontal;</li>
+            <li>margem vertical;</li>
+            <li>remoção da margem do terceiro elemento;</li>
+            <li>limpeza do fluxo com clear.</li>
+        </ul>
+
+        <pre>
+.card {
+    float: left;
+    width: calc(33.333% - 14px);
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.card:nth-child(3n) {
+    margin-right: 0;
+}
+
+.container::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+        </pre>
+
+    </div>
+
+
+    <div class="instrucoes">
+
+        <h2>CSS Grid</h2>
+
+        <p>
+            Com Grid, a estrutura da grade é definida diretamente
+            no container.
+        </p>
+
+        <pre>
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+        </pre>
+
+        <p>
+            <strong>Resultado:</strong>
+            três propriedades descrevem praticamente toda
+            a estrutura do layout.
+        </p>
+
+    </div>
+
+</body>
+
+</html>
