@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mobile First</title>
+
+    <style>
+
+        /* =========================================================
+           ESTILOS VISUAIS
+           ========================================================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-color: #222;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .instrucoes {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: white;
+            border-left: 5px solid #333;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 25px;
+            border-radius: 8px;
+        }
+
+
+        /* =========================================================
+           MOBILE FIRST
+           
+           A regra básica é:
+           
+           O CSS padrão é escrito primeiro para telas pequenas.
+           
+           Depois usamos media queries para adaptar o layout
+           quando a tela fica maior.
+           
+           ========================================================= */
+
+
+        /* ---------------------------------------------------------
+           1. MOBILE
+           
+           Este é o comportamento padrão.
+           Não precisamos de nenhuma media query.
+           
+           Em uma tela pequena:
+           
+           - os cards ficam um abaixo do outro;
+           - o menu fica vertical;
+           - o conteúdo utiliza toda a largura disponível.
+           --------------------------------------------------------- */
+
+        nav {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 20px;
+            background-color: #333;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            text-align: center;
+            background-color: #444;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+
+        /* =========================================================
+           2. TABLET
+           
+           Quando a tela atingir 600px ou mais,
+           modificamos apenas o que precisa mudar.
+           ========================================================= */
+
+        @media (min-width: 600px) {
+
+            nav {
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+
+        /* =========================================================
+           3. DESKTOP
+           
+           Quando a tela atingir 900px ou mais,
+           o layout passa a utilizar 3 colunas.
+           ========================================================= */
+
+        @media (min-width: 900px) {
+
+            .cards {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+        }
+
+
+        /* =========================================================
+           EXPERIMENTO
+           
+           COMENTE TODO O CSS MOBILE FIRST ACIMA
+           (nav, nav a, .cards e as media queries).
+           
+           Depois descomente o bloco abaixo.
+           
+           Esta versão representa uma abordagem mais próxima
+           de "desktop first".
+           
+           ========================================================= */
+
+
+        /*
+        nav {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px;
+            background-color: #333;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            text-align: center;
+            background-color: #444;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+
+        @media (max-width: 899px) {
+
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 599px) {
+
+            nav {
+                flex-direction: column;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+        }
+        */
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Entendendo Mobile First</h1>
+
+        <p>
+            Comece pelo menor dispositivo e evolua o layout
+            conforme a tela aumenta.
+        </p>
+    </header>
+
+
+    <nav>
+        <a href="#">Início</a>
+        <a href="#">Produtos</a>
+        <a href="#">Serviços</a>
+        <a href="#">Contato</a>
+    </nav>
+
+
+    <div class="instrucoes">
+
+        <h2>Experimento</h2>
+
+        <ol>
+            <li>
+                Abra esta página no navegador.
+            </li>
+
+            <li>
+                Reduza a largura da janela até simular
+                a tela de um celular.
+            </li>
+
+            <li>
+                Aumente lentamente a largura da janela.
+            </li>
+
+            <li>
+                Observe as mudanças quando a largura passa por
+                <strong>600px</strong> e <strong>900px</strong>.
+            </li>
+
+            <li>
+                Abra o DevTools do navegador e utilize
+                o modo de simulação de dispositivos móveis.
+            </li>
+
+            <li>
+                Depois, comente todo o bloco
+                <strong>MOBILE FIRST</strong>.
+            </li>
+
+            <li>
+                Descomente o bloco
+                <strong>desktop first</strong>
+                localizado no final do CSS.
+            </li>
+
+            <li>
+                Compare as duas estratégias.
+            </li>
+        </ol>
+
+    </div>
+
+
+    <main class="container">
+
+        <div class="cards">
+
+            <article class="card">
+                <h2>Card 1</h2>
+
+                <p>
+                    Em telas pequenas, este card ocupa
+                    toda a largura disponível.
+                </p>
+            </article>
+
+
+            <article class="card">
+                <h2>Card 2</h2>
+
+                <p>
+                    Em tablets, os cards passam a ser
+                    distribuídos em duas colunas.
+                </p>
+            </article>
+
+
+            <article class="card">
+                <h2>Card 3</h2>
+
+                <p>
+                    Em desktops, utilizamos três colunas.
+                </p>
+            </article>
+
+
+            <article class="card">
+                <h2>Card 4</h2>
+
+                <p>
+                    A mesma estrutura HTML funciona
+                    em diferentes tamanhos de tela.
+                </p>
+            </article>
+
+
+            <article class="card">
+                <h2>Card 5</h2>
+
+                <p>
+                    Apenas as regras de layout são alteradas.
+                </p>
+            </article>
+
+
+            <article class="card">
+                <h2>Card 6</h2>
+
+                <p>
+                    Essa é a base do desenvolvimento responsivo.
+                </p>
+            </article>
+
+        </div>
+
+    </main>
+
+
+    <div class="instrucoes">
+
+        <h2>Mobile First</h2>
+
+        <p>
+            Na abordagem <strong>Mobile First</strong>,
+            começamos pelo layout mais simples:
+        </p>
+
+        <pre>
+.cards {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+        </pre>
+
+        <p>
+            Depois adicionamos recursos conforme
+            a tela aumenta:
+        </p>
+
+        <pre>
+@media (min-width: 600px) {
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (min-width: 900px) {
+
+    .cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+        </pre>
+
+    </div>
+
+
+    <div class="instrucoes">
+
+        <h2>Observe os breakpoints</h2>
+
+        <p>
+            Neste exemplo temos três situações:
+        </p>
+
+        <ul>
+            <li>
+                <strong>Menos de 600px:</strong>
+                1 coluna.
+            </li>
+
+            <li>
+                <strong>600px ou mais:</strong>
+                2 colunas.
+            </li>
+
+            <li>
+                <strong>900px ou mais:</strong>
+                3 colunas.
+            </li>
+        </ul>
+
+        <p>
+            O CSS vai sendo <strong>incrementado</strong>
+            conforme existe mais espaço disponível.
+        </p>
+
+    </div>
+
+
+    <div class="instrucoes">
+
+        <h2>Mobile First vs Desktop First</h2>
+
+        <p>
+            Mobile First normalmente utiliza:
+        </p>
+
+        <pre>
+@media (min-width: ...)
+        </pre>
+
+        <p>
+            A pergunta é:
+            <strong>
+                "O que deve mudar quando a tela ficar maior?"
+            </strong>
+        </p>
+
+
+        <p>
+            Desktop First normalmente utiliza:
+        </p>
+
+        <pre>
+@media (max-width: ...)
+        </pre>
+
+        <p>
+            A pergunta passa a ser:
+            <strong>
+                "O que preciso remover ou reorganizar
+                quando a tela ficar menor?"
+            </strong>
+        </p>
+
+    </div>
+
+
+    <div class="instrucoes">
+
+        <h2>Conclusão</h2>
+
+        <p>
+            Mobile First não significa apenas
+            "fazer um site que funciona no celular".
+        </p>
+
+        <p>
+            Significa desenvolver primeiro para o ambiente
+            mais restrito e adicionar complexidade
+            progressivamente conforme existe mais espaço.
+        </p>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,298 @@
+/* O modelo border-box inclui padding e bordas nas dimensões declaradas. */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #eef2f6;
+  color: #253247;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+/* Mobile First: uma coluna e espaços menores são a experiência base. */
+header,
+main,
+footer {
+  width: 100%;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+header {
+  background-color: #17324d;
+  color: #ffffff;
+  text-align: center;
+  border-bottom: 0.35rem solid #e9b949;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.25;
+}
+
+h1 {
+  margin: 0 0 1rem;
+  font-size: 1.8rem;
+}
+
+header > p {
+  margin: 0 auto 1.5rem;
+  max-width: 40rem;
+  color: #dce7f2;
+}
+
+figure {
+  margin: 0 0 1.5rem;
+}
+
+figure img {
+  display: block;
+  width: 12rem;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border: 0.25rem solid #e9b949;
+  border-radius: 50%;
+}
+
+figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: #dce7f2;
+}
+
+nav ul {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav a {
+  display: block;
+  min-height: 2.75rem;
+  padding: 0.55rem 0.8rem;
+  color: #ffffff;
+  border: 1px solid #8ea8c1;
+  border-radius: 0.35rem;
+  text-decoration: none;
+}
+
+nav a:hover {
+  background-color: #ffffff;
+  color: #17324d;
+}
+
+main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+main > section {
+  min-width: 0;
+  padding: 1rem;
+  background-color: #ffffff;
+  border: 1px solid #ccd6e0;
+  border-radius: 0.5rem;
+}
+
+h2 {
+  margin: 0 0 1rem;
+  padding-left: 0.75rem;
+  border-left: 0.25rem solid #a66c00;
+  color: #17324d;
+  font-size: 1.4rem;
+}
+
+h3 {
+  margin: 0 0 0.75rem;
+  color: #17324d;
+  font-size: 1.15rem;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+main ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+main li + li {
+  margin-top: 0.75rem;
+}
+
+article {
+  padding: 1rem;
+  background-color: #f4f7fa;
+  border-left: 0.2rem solid #8ea8c1;
+}
+
+article + article {
+  margin-top: 1rem;
+}
+
+article > p {
+  margin-bottom: 0;
+}
+
+a {
+  color: #155a8a;
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  text-decoration-thickness: 0.15em;
+}
+
+/* O foco precisa continuar visível também para quem usa o teclado. */
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 0.2rem solid #a66c00;
+  outline-offset: 0.2rem;
+}
+
+address {
+  margin-bottom: 1rem;
+  font-style: normal;
+}
+
+form {
+  margin-top: 1.5rem;
+}
+
+fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0.75rem;
+  border: 1px solid #8ea8c1;
+  border-radius: 0.35rem;
+}
+
+legend {
+  max-width: 100%;
+  padding: 0 0.5rem;
+  color: #17324d;
+  font-weight: bold;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 0.35rem;
+  font-weight: bold;
+}
+
+input,
+textarea {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #64748b;
+  border-radius: 0.25rem;
+  background-color: #ffffff;
+  color: #253247;
+  font: inherit;
+}
+
+textarea {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+button {
+  max-width: 100%;
+  white-space: normal;
+  padding: 0.75rem 1rem;
+  border: 1px solid #8ea8c1;
+  border-radius: 0.25rem;
+  font: inherit;
+}
+
+button:disabled {
+  background-color: #e2e8f0;
+  color: #475569;
+  cursor: not-allowed;
+}
+
+footer {
+  border-top: 1px solid #ccd6e0;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+footer > p:last-child {
+  margin-bottom: 0;
+}
+
+/* Tablet: duas colunas de leitura, com biografia e contato em largura total. */
+@media (min-width: 48rem) {
+  header,
+  main,
+  footer {
+    padding: 1.5rem;
+  }
+
+  h1 {
+    font-size: 2.4rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  nav ul {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  main {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  main > section {
+    padding: 1.5rem;
+  }
+
+  #sobre,
+  #contato {
+    grid-column: 1 / -1;
+  }
+
+  fieldset {
+    padding: 1rem;
+  }
+}
+
+/* Desktop: três colunas; relatos e formulário recebem duas delas. */
+@media (min-width: 75rem) {
+  header,
+  main,
+  footer {
+    padding: 2rem;
+  }
+
+  nav ul {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  main {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  #experiencias,
+  #contato {
+    grid-column: span 2;
+  }
+}

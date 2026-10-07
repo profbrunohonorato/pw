@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Site pessoal de Bruno de Castro Honorato Silva, professor da UTFPR: formação, pesquisa, tecnologias e contato.">
+  <title>Bruno Honorato | Site pessoal com CSS</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <header id="inicio">
+    <h1>Bruno de Castro Honorato Silva</h1>
+    <p>Professor da UTFPR, pesquisador e desenvolvedor de soluções para a Web.</p>
+    <figure>
+      <img src="imagens/bruno-honorato.jpg" alt="Retrato de Bruno de Castro Honorato Silva" width="240" height="240">
+      <figcaption>Prof. Bruno Honorato - Campus Dois Vizinhos.</figcaption>
+    </figure>
+    <nav aria-label="Navegação principal">
+      <ul>
+        <li><a href="#sobre">Sobre mim</a></li>
+        <li><a href="#formacao">Formação acadêmica</a></li>
+        <li><a href="#experiencias">Experiências e projetos</a></li>
+        <li><a href="#habilidades">Habilidades e tecnologias</a></li>
+        <li><a href="#perfis">Perfis profissionais</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section id="sobre">
+      <h2>Sobre mim</h2>
+      <p>Sou professor adjunto da Universidade Tecnológica Federal do Paraná (UTFPR). Atuo com sistemas inteligentes para a Web, pagamentos digitais, geoinformática e DevOps.</p>
+      <p>Coordeno projetos de pesquisa, desenvolvimento e inovação em engenharia de software, open banking, arquitetura Web em nuvem e dispositivos móveis. Busco aproximar empresas e instituições de ensino e ampliar as oportunidades profissionais dos estudantes.</p>
+    </section>
+    <section id="formacao">
+      <h2>Formação acadêmica</h2>
+      <ul>
+        <li><strong>Doutorado em Sistemas e Computação</strong> - Universidade Federal do Rio Grande do Norte (UFRN), 2017 a 2020.</li>
+        <li><strong>Mestrado em Ciência da Computação</strong> - Universidade Estadual do Ceará (UECE), 2011 a 2013.</li>
+        <li><strong>Graduação em Análise e Desenvolvimento de Sistemas</strong> - Faculdade Estácio do Ceará, 2008 a 2010.</li>
+      </ul>
+    </section>
+    <section id="experiencias">
+      <h2>Experiências e projetos</h2>
+      <article>
+        <h3>Ensino e pesquisa na UTFPR</h3>
+        <p>Minha atuação reúne ensino de engenharia de software e pesquisa aplicada em soluções Web, sistemas inteligentes e geoinformática.</p>
+      </article>
+      <article>
+        <h3>Cooperação com o setor de pagamentos digitais</h3>
+        <p>Contribuí para a implantação da FitBank no sertão cearense e liderei projetos de pesquisa com investimentos do Goldman Sachs, conforme meu currículo Lattes.</p>
+      </article>
+      <article>
+        <h3>Otimização de rotas</h3>
+        <p>No mestrado, pesquisei otimização de rotas com heurísticas em ambiente georreferenciado. No doutorado, estudei uma variante do Problema do Caixeiro Viajante com passageiros e tempo de coleta.</p>
+      </article>
+    </section>
+    <section id="habilidades">
+      <h2>Habilidades e tecnologias</h2>
+      <ul>
+        <li>Desenvolvimento Web: HTML, CSS e JavaScript.</li>
+        <li>Serviços e aplicações: Java, Spring e Python.</li>
+        <li>Dados geográficos: PostgreSQL, PostGIS e GeoServer.</li>
+        <li>Práticas de desenvolvimento: Git, Docker e DevOps.</li>
+        <li>Pesquisa: otimização combinatória e engenharia de software.</li>
+      </ul>
+    </section>
+    <section id="perfis">
+      <h2>Perfis profissionais</h2>
+      <ul>
+        <li><a href="https://lattes.cnpq.br/6735984081484731">Currículo Lattes de Bruno Honorato</a></li>
+        <li><a href="https://www.linkedin.com/in/bruno-honorato-3abb01180">LinkedIn de Bruno Honorato</a></li>
+        <li><a href="https://orcid.org/0000-0003-1250-337X">ORCID de Bruno Honorato</a></li>
+      </ul>
+    </section>
+    <section id="contato">
+      <h2>Contato</h2>
+      <address>
+        Universidade Tecnológica Federal do Paraná - Campus Dois Vizinhos.<br>
+        E-mail: <a href="mailto:brunosilva@utfpr.edu.br">brunosilva@utfpr.edu.br</a>
+      </address>
+      <p>Este formulário demonstra a estrutura HTML de coleta de dados. Não há serviço de envio; para entrar em contato, use o e-mail acima.</p>
+      <form>
+        <fieldset>
+          <legend>Mensagem de contato (demonstração)</legend>
+          <p><label for="nome">Nome:</label><br><input type="text" id="nome" name="nome" autocomplete="name" required></p>
+          <p><label for="email">E-mail:</label><br><input type="email" id="email" name="email" autocomplete="email" required></p>
+          <p><label for="mensagem">Mensagem:</label><br><textarea id="mensagem" name="mensagem" rows="5" cols="30" required></textarea></p>
+          <button type="button" disabled>Envio indisponível nesta etapa</button>
+        </fieldset>
+      </form>
+    </section>
+  </main>
+  <footer>
+    <p>Bruno Honorato - Site pessoal desenvolvido na disciplina Programação para Web 1.</p>
+    <p><a href="#inicio">Voltar ao início</a></p>
+  </footer>
+</body>
+</html>
