@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Experimente sessionStorage, localStorage, cookies e IndexedDB no navegador.">
+  <title>Persistência no front-end · Tópicos de Web</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  
+  <script defer src="app.js"></script>
+</head>
+<body>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header><div><strong>Programação para Web · UTFPR Dois Vizinhos</strong>
+<nav aria-label="Principal"><a href="../index.html">Tópicos</a><a href="README.md">Guia desta aula</a></nav></div></header>
+<main id="conteudo"><p class="eyebrow">02 · DADOS LOCAIS</p><h1>O que o navegador guarda?</h1><p>Experimente os quatro mecanismos com uma nota sem dados pessoais. O mesmo texto pode ser salvo separadamente em cada mecanismo.</p><section class="panel" aria-labelledby="note-title"><h2 id="note-title">Uma nota, quatro destinos</h2><label for="nota">Nota da aula</label><textarea id="nota" maxlength="1000" placeholder="O que aprendi hoje?"></textarea><p class="muted">O cookie deste exemplo aceita até 500 caracteres codificados. O botão Ler copia o valor salvo para este campo.</p><div id="stores" class="grid"></div><p id="status" class="status" role="status" aria-live="polite">Escolha onde salvar.</p><button id="clear-all" class="secondary">Apagar os dados desta aula</button></section>
+<section class="panel" aria-labelledby="compare"><h2 id="compare">Compare os comportamentos</h2><div class="table-wrap"><table><thead><tr><th>Mecanismo</th><th>Ciclo de vida</th><th>Formato e acesso</th><th>Enviado ao servidor?</th></tr></thead><tbody><tr><td>sessionStorage</td><td>Sessão da aba; recarregar preserva</td><td>Chave/valor de strings; síncrono</td><td>Não automaticamente</td></tr><tr><td>localStorage</td><td>Entre sessões, até limpeza ou restrições do navegador</td><td>Chave/valor de strings; síncrono</td><td>Não automaticamente</td></tr><tr><td>Cookies</td><td>Até Max-Age/Expires ou fim da sessão, conforme configuração</td><td>Pequenos valores e atributos</td><td>Sim, em requisições compatíveis com seus atributos</td></tr><tr><td>IndexedDB</td><td>Entre sessões, sujeito a limpeza e políticas de armazenamento</td><td>Objetos, índices e transações; assíncrono</td><td>Não automaticamente</td></tr></tbody></table></div></section>
+<section class="panel" aria-labelledby="experiment"><h2 id="experiment">Roteiro de observação</h2><ol><li>Salve em cada destino e recarregue.</li><li>Abra outra aba pela barra de endereços e compare. localStorage e IndexedDB pertencem à origem; sessionStorage também depende da aba.</li><li>Veja Application/Storage no DevTools: cookies, Local Storage, Session Storage e IndexedDB.</li><li>Apague uma nota e confirme que os outros mecanismos preservam suas cópias.</li></ol><p>Em navegação privada ou com armazenamento bloqueado, salvar pode falhar. Esta página informa o erro. Não armazene senhas ou tokens de sessão nesses exemplos.</p></section></main>
+<footer><div>Exemplos didáticos · HTML, CSS e JavaScript puro · <a href="../README.md">Roteiro geral</a></div></footer>
+</body>
+</html>

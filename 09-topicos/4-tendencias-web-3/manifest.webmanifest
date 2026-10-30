@@ -1,0 +1,11 @@
+{
+  "name": "Laboratório de tendências Web",
+  "short_name": "Tendências Web",
+  "lang": "pt-BR",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f2f6f9",
+  "theme_color": "#155d78",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}

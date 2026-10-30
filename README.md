@@ -48,6 +48,11 @@ Cada aula ou assunto poderá possuir seu próprio diretório.
 
 A organização pode mudar conforme a evolução das aulas.
 
+A aplicação de [08-requisicoes](08-requisicoes/README.md) usa uma API pública de previsão do tempo para explicar HTTP, submit, AJAX, Promises, métodos, status, protocolos, sockets e servidores web. Abra o [laboratório HTTP](08-requisicoes/index.html).
+
+Os laboratórios de [08-topicos](08-topicos/README.md) reúnem aplicações em HTML, CSS e JavaScript puro sobre HTML semântico, domínio/DNS/SEO, persistência no navegador, segurança e tendências da Web. Acesse também o [índice das aulas](08-topicos/index.html).
+
+
 ## Como utilizar os exemplos
 
 Clone o repositório:

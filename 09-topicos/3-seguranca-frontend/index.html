@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Laboratório de XSS e cookies e guias de CSRF, SSRF, SQL Injection, MIME Sniffing, smuggling e proteção.">
+  <title>Segurança no front-end · Tópicos de Web</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  
+  <script defer src="app.js"></script>
+</head>
+<body>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header><div><strong>Programação para Web · UTFPR Dois Vizinhos</strong>
+<nav aria-label="Principal"><a href="../index.html">Tópicos</a><a href="README.md">Guia desta aula</a></nav></div></header>
+<main id="conteudo"><p class="eyebrow">03 · SEGURANÇA</p><h1>Entenda onde cada defesa funciona</h1><p>XSS pode executar no navegador; CSRF envolve requisições autenticadas; SSRF e SQL Injection dependem do servidor. HTTP Request Smuggling envolve a interpretação de mensagens entre servidores e proxies.</p>
+<section class="panel" aria-labelledby="xss"><h2 id="xss">XSS: texto ou marcação?</h2><p>Compare o mesmo comentário como texto e como HTML em um quadro isolado. O quadro tem sandbox sem permissão para scripts e uma política que bloqueia recursos externos.</p><form id="comment-form"><label for="comment">Comentário de teste</label><textarea id="comment" maxlength="2000">Olá, &lt;strong&gt;turma&lt;/strong&gt;!</textarea><button>Comparar renderização</button></form><div class="grid"><article><h3>Saída segura com textContent</h3><p id="safe-comment"></p></article><article><h3>HTML interpretado em sandbox</h3><iframe id="html-comment" title="HTML do comentário em ambiente isolado" sandbox="" referrerpolicy="no-referrer"></iframe></article></div><p class="note">O sandbox impede a execução de código nesta demonstração. Isso não torna seguro usar innerHTML com entrada não confiável no documento real. No README, veja XSS refletido, armazenado e baseado em DOM.</p></section>
+<section class="panel" aria-labelledby="csrf"><h2 id="csrf">CSRF: simule a decisão do servidor</h2><p>Modelo local, sem login ou requisição real. Um token válido é comparado a uma sessão fictícia; no sistema real, quem verifica é o back-end.</p><form id="csrf-form"><label for="csrf-origin">Origem da requisição fictícia</label><select id="csrf-origin"><option value="same">https://aula.example</option><option value="other">https://outro.example</option></select><label for="csrf-token">Token enviado</label><select id="csrf-token"><option value="valid">Token correspondente à sessão</option><option value="invalid">Token ausente ou inválido</option></select><button>Simular validação</button></form><output id="csrf-result" role="status"></output><p>Este modelo exige origem confiável e token válido. SameSite é uma camada adicional; CORS e CAPTCHA não substituem a proteção contra CSRF.</p></section>
+<section class="panel" aria-labelledby="zombie"><h2 id="zombie">Zombie Cookie: entenda a restauração</h2><p>Grave uma preferência fictícia em cookie e localStorage. Depois apague só o cookie e clique explicitamente em Restaurar. A cópia permite que o valor reapareça. Nenhum identificador é criado e não há restauração automática.</p><button id="seed-cookie">1. Gravar exemplo</button><button id="delete-cookie" class="secondary">2. Apagar só cookie</button><button id="restore-cookie" class="secondary">3. Restaurar da cópia</button><button id="clear-cookie" class="secondary">Apagar ambas as cópias</button><pre id="cookie-state" aria-live="polite"></pre><p>Recriar identificadores contra a escolha de quem os apagou compromete sua privacidade. O exemplo existe para mostrar como reconhecer e remover todas as cópias.</p></section>
+<section class="panel" aria-labelledby="layers"><h2 id="layers">Camadas de proteção</h2><p class="flow">Navegador → CDN / WAF → aplicação → banco de dados</p><dl><dt>reCAPTCHA</dt><dd>Ajuda a avaliar automação. Exige configuração no provedor e verificação do token no servidor.</dd><dt>CDN</dt><dd>Distribui conteúdo e reduz latência. Não torna o código da aplicação seguro por si só.</dd><dt>WAF</dt><dd>Inspeciona tráfego HTTP com regras e pode bloquear requisições. Atua como defesa adicional.</dd></dl><p>Os tutoriais no README cobrem também SSRF, SQL Injection, MIME Sniffing e HTTP Request Smuggling. Eles exigem controles no servidor, no banco ou na infraestrutura.</p><a class="button" href="README.md">Abrir tutoriais de segurança</a></section><p id="status" role="status" class="status"></p></main>
+<footer><div>Exemplos didáticos · HTML, CSS e JavaScript puro · <a href="../README.md">Roteiro geral</a></div></footer>
+</body>
+</html>

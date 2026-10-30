@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Aprenda HTML semântico, domínios e DNS e experimente um gerador de slug para SEO.">
+  <title>HTML semântico, DNS e SEO · Tópicos de Web</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  
+  <script defer src="app.js"></script>
+</head>
+<body>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header><div><strong>Programação para Web · UTFPR Dois Vizinhos</strong>
+<nav aria-label="Principal"><a href="../index.html">Tópicos</a><a href="README.md">Guia desta aula</a></nav></div></header>
+<main id="conteudo"><p class="eyebrow">01 · HTML E PUBLICAÇÃO</p><h1>Do documento ao resultado de busca</h1>
+<p>Esta página usa <code>header</code>, <code>nav</code>, <code>main</code>, <code>section</code>, <code>article</code>, <code>aside</code> e <code>footer</code>. Inspecione o HTML e a árvore de acessibilidade no DevTools.</p>
+<section aria-labelledby="slug-title" class="panel"><h2 id="slug-title">Construa um slug legível</h2><form id="slug-form"><label for="titulo">Título do artigo</label><input id="titulo" value="Café e tecnologia em Dois Vizinhos" required maxlength="150"><button>Gerar slug</button></form><p>Slug: <output id="slug"></output></p><p>URL ilustrativa:</p><output id="url"></output><p class="muted">A ferramenta apenas transforma texto. Ela não registra um domínio nem cria uma página ou redirecionamento.</p></section>
+<section aria-labelledby="semantic-title"><h2 id="semantic-title">Conteúdo com significado</h2><div class="grid"><article><h3>Uma aula aberta para a comunidade</h3><p>Publicado em <time datetime="2026-10-30">30 de outubro de 2026</time>.</p><p>Um artigo pode ser compreendido fora da página. Uma seção agrupa um assunto e deve ter um título. O título descreve o conteúdo real, sem repetição artificial de palavras-chave.</p><details><summary>Como conferir a semântica</summary><p>Use Tab para percorrer os links e controles. Inspecione os landmarks e a hierarquia de títulos. Trocar uma div por article não substitui conteúdo útil e acessível.</p></details></article><aside class="panel" aria-labelledby="related"><h3 id="related">Leitura relacionada</h3><p>Domínio é o nome; DNS publica os registros; hospedagem entrega arquivos; HTTPS protege a conexão.</p><a href="README.md#tutorial-registrar-um-dominio-e-configurar-dns">Tutorial de registro e DNS</a></aside></div></section>
+<section class="panel" aria-labelledby="dns-title"><h2 id="dns-title">Leia uma zona DNS fictícia</h2><div class="table-wrap"><table><caption>Exemplo para example.com — endereços reservados para documentação</caption><thead><tr><th>Nome</th><th>Tipo</th><th>Valor</th><th>Função</th></tr></thead><tbody><tr><td>@</td><td>A</td><td>192.0.2.10</td><td>Endereço IPv4</td></tr><tr><td>@</td><td>AAAA</td><td>2001:db8::10</td><td>Endereço IPv6</td></tr><tr><td>www</td><td>CNAME</td><td>example.com.</td><td>Alias de hostname</td></tr><tr><td>@</td><td>MX</td><td>10 mail.example.com.</td><td>Recebimento de e-mail</td></tr><tr><td>@</td><td>TXT</td><td>google-site-verification=EXEMPLO</td><td>Comprovação de propriedade</td></tr></tbody></table></div><p>DNS não cria slugs nem redireciona caminhos como <code>/artigos/cafe</code>. Isso cabe ao servidor ou à aplicação.</p></section>
+<section class="panel" aria-labelledby="seo-title"><h2 id="seo-title">O que já existe nesta página?</h2><ul><li>Idioma, título descritivo e meta description.</li><li>Hierarquia de títulos, links descritivos e layout responsivo.</li><li>Conteúdo principal legível mesmo sem JavaScript.</li></ul><p>Veja no README como configurar canonical, sitemap, robots.txt, domínio e Search Console na publicação real. Nenhuma dessas medidas garante a primeira posição no Google.</p></section></main>
+<footer><div>Exemplos didáticos · HTML, CSS e JavaScript puro · <a href="../README.md">Roteiro geral</a></div></footer>
+</body>
+</html>

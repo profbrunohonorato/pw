@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore HTML moderno, dados estruturados, Web Components, PWA e conceitos de web descentralizada.">
+  <title>HTML moderno e Web 3.0 · Tópicos de Web</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="manifest" href="manifest.webmanifest">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"HTML moderno e Web 3.0","inLanguage":"pt-BR","learningResourceType":"Laboratório","description":"Exemplos didáticos de HTML nativo, Web Components e funcionamento offline."}</script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header><div><strong>Programação para Web · UTFPR Dois Vizinhos</strong>
+<nav aria-label="Principal"><a href="../index.html">Tópicos</a><a href="README.md">Guia desta aula</a></nav></div></header>
+<main id="conteudo"><p class="eyebrow">04 · TENDÊNCIAS</p><h1>HTML na evolução da Web</h1><p>“Web 3.0” pode se referir à web semântica e aos dados conectados; “Web3” costuma designar aplicações descentralizadas. Esses termos não são uma versão nova do HTML.</p><div class="grid"><article><h2>Semântica e dados</h2><p>Conteúdo estruturado para pessoas e máquinas. Esta página tem JSON-LD descrevendo um material didático; inspecione o código-fonte.</p></article><article><h2>Plataforma nativa</h2><p>Dialog, popover, Web Components e recursos offline reduzem a necessidade de bibliotecas em algumas tarefas. São recursos da plataforma Web, não exclusivos da Web3.</p></article><article><h2>Descentralização</h2><p>Carteiras, contratos e endereçamento por conteúdo mudam partes da arquitetura. HTML continua apresentando a interface. Veja o roteiro de IPFS e carteiras no README.</p></article></div>
+<section class="panel" aria-labelledby="native"><h2 id="native">Interação com HTML nativo</h2><button id="open-dialog">Abrir dialog</button><button id="open-popover" popovertarget="help-popover">Mostrar popover</button><div id="help-popover" popover>Popover é não modal: o restante da página continua disponível.</div><p id="native-status" role="status"></p><dialog id="demo-dialog" aria-labelledby="dialog-title"><h3 id="dialog-title">Uma janela modal nativa</h3><p>O navegador gerencia a modalidade. Use Escape ou o botão para fechar.</p><form method="dialog"><button>Fechar</button></form></dialog><details><summary>Outro recurso sem JavaScript: details</summary><p>O navegador já implementa o controle de expansão.</p></details></section>
+<section class="panel" aria-labelledby="component"><h2 id="component">Um Web Component</h2><p>O elemento abaixo combina Custom Elements, template e Shadow DOM. Sua interação não depende de React.</p><template id="counter-template"><style>:host{display:block;padding:1rem;border:1px solid #9ab3c4;border-radius:8px}button{font:inherit;padding:.5rem;background:#155d78;color:white;border:0;border-radius:4px}button:focus-visible{outline:3px solid #d57709;outline-offset:3px}output{margin-left:1rem}</style><button type="button">Explorar componente</button><output aria-live="polite">0 interações</output></template><aula-counter></aula-counter><p id="component-status" role="status"></p></section>
+<section class="panel" aria-labelledby="offline"><h2 id="offline">Progressive Web App: uma página offline</h2><p>Ative manualmente um service worker restrito a esta pasta. Após a instalação, recarregue a página; depois teste o modo offline no DevTools. Isso não é uma conexão a blockchain.</p><button id="enable-offline">Ativar exemplo offline</button><button id="disable-offline" class="secondary">Remover exemplo offline</button><p id="offline-status" role="status" aria-live="polite">O recurso ainda não foi ativado nesta visita.</p><p class="muted">Service workers precisam de HTTPS ou localhost. A remoção exclui apenas o registro e o cache desta aula.</p></section>
+<section class="panel" aria-labelledby="wallet"><h2 id="wallet">Carteira não é login automático</h2><p>Em uma aplicação Web3, a página solicita uma conta ao provedor com autorização do usuário. Autenticação exige um desafio verificável; transferir valores exige outra autorização. Este exemplo não solicita contas nem assina transações.</p><a class="button" href="README.md">Ver tutorial de Web3 e IPFS</a></section></main>
+<footer><div>Exemplos didáticos · HTML, CSS e JavaScript puro · <a href="../README.md">Roteiro geral</a></div></footer>
+</body>
+</html>
