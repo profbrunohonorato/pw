@@ -33,48 +33,91 @@ longo da disciplina:
 
 ## Organização do repositório
 
-Cada aula ou assunto poderá possuir seu próprio diretório.
+Cada aula ou assunto possui seu próprio diretório:
 
 ``` text
 .
-├── 01-introducao-web/
+├── 01-intro/
 ├── 02-html/
 ├── 03-css/
-├── 04-layouts-responsividade/
-├── 05-javascript/
+├── 04-layout/
+├── 05-js/
 ├── 06-react/
-└── ...
+├── 07-site-pessoal/
+├── 08-requisicoes/
+├── 09-topicos/
+├── experimento/
+└── index.html
 ```
 
-A organização pode mudar conforme a evolução das aulas.
+## Implementações de 30/10/2026
 
-A aplicação de [08-requisicoes](08-requisicoes/README.md) usa uma API pública de previsão do tempo para explicar HTTP, submit, AJAX, Promises, métodos, status, protocolos, sockets e servidores web. Abra o [laboratório HTTP](08-requisicoes/index.html).
+### Rota Fácil: JavaScript e React
 
-Os laboratórios de [08-topicos](08-topicos/README.md) reúnem aplicações em HTML, CSS e JavaScript puro sobre HTML semântico, domínio/DNS/SEO, persistência no navegador, segurança e tendências da Web. Acesse também o [índice das aulas](08-topicos/index.html).
+O [Rota Fácil em JavaScript](05-js/README.md) permite buscar endereços ou marcar origem e destino no mapa para calcular distância e duração estimada de um deslocamento de carro em Dois Vizinhos–PR. O exemplo combina HTML, CSS, Bootstrap, manipulação do DOM, eventos, `fetch`, Promises e `async/await`, sem back-end próprio ou compilação.
 
+Foram incluídos 580 logradouros para sugestões locais, extraídos da lista de CEPs e conferidos no PDF municipal, além do limite municipal do IBGE em GeoJSON. O autocomplete ignora diferenças de acentuação e não faz consultas externas durante a digitação. A busca por coordenadas usa Nominatim; o cálculo do trajeto usa OSRM; o mapa usa OpenLayers e dados do OpenStreetMap. A seleção de pontos e os trajetos são validados pelo limite municipal. Uma sugestão local não garante que o endereço esteja cadastrado no Nominatim; a marcação no mapa oferece outra forma de selecionar o ponto.
+
+A interface inclui tratamento de erros, limpeza e invalidação da rota ao alterar um ponto, layout responsivo, logo, favicons e imagem de compartilhamento com metadados de SEO e Open Graph. Consulte as limitações e orientações de uso dos serviços públicos no README da aplicação. [Abrir a versão JavaScript](05-js/index.html).
+
+A [versão React](06-react/README.md) migra a mesma ferramenta para React e Vite, com componentes reutilizáveis, containers, funcionalidades, configuração e funções auxiliares. O estado e os formulários são controlados pelo React; hooks integram o ciclo de vida do mapa. Os dados locais e as restrições municipais foram preservados. Foram adicionados testes com Vitest e Testing Library para autocomplete, APIs, validações e fluxo da calculadora, além dos comandos de desenvolvimento, compilação e prévia.
+
+### Requisições HTTP e previsão do tempo
+
+O [laboratório Tempo de Requisição](08-requisicoes/README.md) consulta localidades e apresenta condições atuais e previsão de cinco dias usando a Open-Meteo. Permite comparar Fetch com `async/await`, Fetch com `.then()`, XMLHttpRequest e navegação por submit HTML. O diário de requisições mostra URL, método, duração, status, tipo de conteúdo e resposta, com cancelamento, timeout e tratamento de falhas.
+
+O material explica HTTP, AJAX, Promises, métodos, status, protocolos, sockets e servidores web. Configurações que exigem infraestrutura, como HTTPS e servidores, estão documentadas como tutoriais. [Abrir o laboratório HTTP](08-requisicoes/index.html).
+
+### Quatro laboratórios de tópicos complementares
+
+Os exemplos de [09-topicos](09-topicos/README.md) usam HTML, CSS e JavaScript puro, com estilo compartilhado e READMEs contendo conceitos, experiências, exercícios e referências. [Abrir o índice dos laboratórios](09-topicos/index.html).
+
+| Laboratório | Implementação e conteúdo |
+| --- | --- |
+| [HTML semântico, DNS e SEO](09-topicos/1-html-semantico-dns-seo/README.md) | Página semântica, gerador de slug e exemplo de zona DNS; tutoriais de domínio, hospedagem, HTTPS, SEO e Search Console. |
+| [Persistência no front-end](09-topicos/2-persistencia-frontend/README.md) | Salvar, ler e apagar notas em sessionStorage, localStorage, cookies e IndexedDB; comparação de origem, duração e organização dos dados. |
+| [Segurança no front-end](09-topicos/3-seguranca-frontend/README.md) | Comparação de texto e HTML em sandbox, modelo de decisão CSRF e restauração manual de cookie; explicações de XSS, SSRF, SQL Injection, MIME Sniffing, HTTP Request Smuggling e Zombie Cookie, além de tutoriais de reCAPTCHA, CDN e WAF. |
+| [Tendências e Web 3.0](09-topicos/4-tendencias-web-3/README.md) | Dialog, popover, details, Web Component e JSON-LD; manifesto e service worker opcional para experiência offline, com tutoriais de PWA, IPFS e carteiras Web3. |
+
+Os controles de segurança que dependem de servidor são tratados nos tutoriais. O service worker só é ativado por ação do usuário e fica restrito à pasta do quarto laboratório.
+
+### Organização e arquivos do projeto
+
+- A pasta `07-trabalho-1` foi renomeada para [07-site-pessoal](07-site-pessoal/nota-de-aula.md), preservando as três etapas: HTML puro, CSS e mobile first.
+- Foi incluído um exemplo simples de tabela no `index.html` da raiz.
+- Foi adicionado um `.gitignore` geral para dependências, compilações, cobertura, configurações e credenciais locais, logs e arquivos temporários.
+- Arquivos auxiliares de documento e a antiga entrada `.aws` foram retirados do versionamento.
 
 ## Como utilizar os exemplos
 
 Clone o repositório:
 
 ``` bash
-git clone <URL-DO-REPOSITORIO>
-cd <NOME-DO-REPOSITORIO>
+git clone https://github.com/profbrunohonorato/pw.git
+cd pw
 ```
 
 Depois, acesse o diretório correspondente à aula desejada.
 
-Nos exemplos de **HTML, CSS e JavaScript puro**, normalmente será
-suficiente abrir o arquivo `index.html` no navegador ou utilizar uma
-extensão como **Live Server** no Visual Studio Code.
+Para os exemplos de **HTML, CSS e JavaScript puro**, utilize o **Live Server** do Visual Studio Code ou execute na raiz:
 
-Nos projetos que utilizarem **Node.js/React**, consulte o `README.md` do
-respectivo diretório. Em geral, a execução seguirá o fluxo:
+```bash
+python3 -m http.server 8000 --bind 127.0.0.1
+```
+
+Acesse `http://localhost:8000/05-js/`, `http://localhost:8000/08-requisicoes/` ou `http://localhost:8000/09-topicos/`. Use HTTP local para carregar JSON, testar persistência e registrar service workers. Para comparar dados persistidos, mantenha o mesmo host e porta.
+
+Para a aplicação **React**, utilize Node.js compatível com o campo `engines` de `06-react/package.json` e execute:
 
 ``` bash
-npm install
-npm run dev
+cd 06-react
+npm ci
+npm start
 ```
+
+Acesse `http://127.0.0.1:5173/pw/06-react/` ou a porta informada pelo Vite. Na mesma pasta, `npm test` executa os testes, `npm run build` gera `dist/` e `npm run preview` serve a compilação localmente. Consulte o [guia React](06-react/README.md) para detalhes.
+
+O Rota Fácil e o laboratório de previsão precisam de internet para consultar serviços externos. Para publicar React, use o conteúdo compilado de `dist/` no caminho configurado em `vite.config.js`. Os exemplos estáticos podem ser servidos diretamente; os guias locais explicam os ajustes de publicação e compartilhamento. Nenhuma publicação é executada automaticamente.
 
 ## Exemplos não são soluções finais
 
