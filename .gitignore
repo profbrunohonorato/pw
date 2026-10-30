@@ -1,0 +1,36 @@
+# Regras compartilhadas por todas as aulas e aplicações do repositório
+
+# Dependências JavaScript
+node_modules/
+
+# Compilação, ferramentas de desenvolvimento e cobertura de testes
+dist/
+build/
+coverage/
+.vite/
+.cache/
+.eslintcache
+*.tsbuildinfo
+
+# Configurações e credenciais locais
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.pfx
+
+# Logs e arquivos temporários
+*.log
+*.tmp
+*.swp
+*.swo
+*~
+__pycache__/
+*.pyc
+
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+Desktop.ini
